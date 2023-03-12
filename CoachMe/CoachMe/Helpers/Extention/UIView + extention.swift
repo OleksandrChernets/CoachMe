@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: Custom UIView
+
 extension UIView {
     func addBottomBorder(with color: UIColor, height: CGFloat) {
         let separator = UIView()

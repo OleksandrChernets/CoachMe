@@ -35,18 +35,18 @@ final class TabBarController: UITabBarController {
         
         tabBar.layer.borderColor = Resources.Colors.separator.cgColor
         tabBar.layer.borderWidth = 1
-         tabBar.layer.masksToBounds = true
+        tabBar.layer.masksToBounds = true
         
         
-        let overviewController = UIViewController()
-        let sessionController = UIViewController()
-        let progressController = UIViewController()
-        let settingsController = UIViewController()
+        let overviewController = OverviewController()
+        let sessionController = SessionController()
+        let progressController = ProgressController()
+        let settingsController = SettingsController()
         
-        let overviewNavigation = UINavigationController(rootViewController: overviewController)
-        let sessionNavigation = UINavigationController(rootViewController: sessionController)
-        let progressNavigation = UINavigationController(rootViewController: progressController)
-        let settingsNavigation = UINavigationController(rootViewController: settingsController)
+        let overviewNavigation = NavigationBarController(rootViewController: overviewController)
+        let sessionNavigation = NavigationBarController(rootViewController: sessionController)
+        let progressNavigation = NavigationBarController(rootViewController: progressController)
+        let settingsNavigation = NavigationBarController(rootViewController: settingsController)
         
         
         overviewNavigation.tabBarItem = UITabBarItem(title: Resources.Strings.TabBar.overview,
@@ -61,7 +61,6 @@ final class TabBarController: UITabBarController {
         settingsNavigation.tabBarItem = UITabBarItem(title: Resources.Strings.TabBar.settings,
                                                      image: Resources.Images.TabBar.settings,
                                                      tag: Tabs.settings .rawValue)
-//        overviewController.view.backgroundColor = .red
         
         
         setViewControllers([overviewNavigation, sessionNavigation, progressNavigation, settingsNavigation], animated: false)
